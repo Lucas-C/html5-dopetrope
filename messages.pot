@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-06-29 21:36+0200\n"
+"POT-Creation-Date: 2021-06-30 09:46+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,43 +17,47 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.9.1\n"
 
-#: templates/base.html:109
+#: templates/base.html:153
 msgid "Latest articles"
 msgstr ""
 
-#: templates/base.html:127
+#: templates/base.html:171
 msgid "What's this all about?"
 msgstr ""
 
-#: templates/base.html:139
+#: templates/base.html:184
 msgid "Find out more"
 msgstr ""
 
-#: templates/base.html:150
+#: templates/base.html:198
 msgid "Blogroll"
 msgstr ""
 
-#: templates/base.html:163
+#: templates/base.html:211
 msgid "Categories"
 msgstr ""
 
-#: templates/base.html:177
+#: templates/base.html:225
 msgid "Contact"
 msgstr ""
 
-#: templates/base.html:197
+#: templates/base.html:245
 msgid "Address"
 msgstr ""
 
-#: templates/base.html:205
+#: templates/base.html:251
 msgid "Mail"
 msgstr ""
 
-#: templates/base.html:211
+#: templates/base.html:257
 msgid "Phone"
 msgstr ""
 
-#: templates/index.html:23
+#: templates/index.html:22
+msgid "Source"
+msgstr ""
+
+#: templates/index.html:25
 msgid "Continue Reading"
 msgstr ""
 

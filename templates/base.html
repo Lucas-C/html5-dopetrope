@@ -12,7 +12,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>{% block title %}{{ SITENAME }}{% endblock title %}</title>
-        <meta name="description" content="{% block meta_desc %}{{ DESCRIPTION|striptags|escape }}{% endblock %}">
+        <meta name="description" content="{% block meta_desc %}{{ SITESUBTITLE|striptags|escape }}{% endblock %}">
         {% if FAVICON %}
         <link rel="shortcut icon" href="{{ SITEURL }}/{{ FAVICON }}" type="{{ FAVICON_TYPE|default('image/x-icon') }}">
         {% endif %}
@@ -56,8 +56,8 @@
         <meta name="author" content="{{ AUTHOR }}">
         <meta name="copyright" content="{{ AUTHOR }}">
         <meta name="twitter:card" content="summary" >
-        {% if TWITTER_USERNAME %}
-        <meta name="twitter:site" content="@{{ TWITTER_USERNAME }}" >
+        {% if TWITTER_USER %}
+        <meta name="twitter:site" content="@{{ TWITTER_USER }}" >
         {% endif %}
         <meta property="og:site_name" content="{{ SITENAME }}" >
 
@@ -68,10 +68,10 @@
         <meta name="twitter:url" content="{{ SITEURL }}" >
         <meta itemprop="name" content="{{ SITENAME }}" >
         <meta itemprop="url" content="{{ SITEURL }}">
-        {% if DESCRIPTION %}
-        <meta property="og:description" content="{{ DESCRIPTION|striptags|escape }}" >
-        <meta name="twitter:description" content="{{ DESCRIPTION|striptags|escape }}" >
-        <meta itemprop="description" content="{{ DESCRIPTION|striptags|escape  }}" >
+        {% if SITESUBTITLE %}
+        <meta property="og:description" content="{{ SITESUBTITLE|striptags|escape }}" >
+        <meta name="twitter:description" content="{{ SITESUBTITLE|striptags|escape }}" >
+        <meta itemprop="description" content="{{ SITESUBTITLE|striptags|escape  }}" >
         {% endif %}
         {% if META_IMAGE %}
         <meta property="og:image" content="{{ META_IMAGE }}" >
@@ -126,11 +126,6 @@
             {{ SITESUBTITLE }}
             </div>
             {% endif %}
-            {% if DESCRIPTION %}
-            <div id="header-description">
-            {{ DESCRIPTION }}
-            </div>
-            {% endif %}
         </div>
 
 		<div id="main-wrapper">
@@ -161,33 +156,34 @@
                         </section>
                     </div>
                     {% endif %}
-                    {% if ABOUT_TEXT or ABOUT_IMAGE or ABOUT_LINK %}
+                    {% if ABOUT_TEXT %}
                     <div class="4u">
                         <section>
                             <header>
                                 <h2>{% trans %}What's this all about?{% endtrans %}</h2>
                             </header>
-                            {% if ABOUT_LINK %}
-                                <a href="{{ ABOUT_LINK }}" class="image image-full"><img src="{{ SITEURL }}/{{ ABOUT_IMAGE }}" alt="" /></a>
-                            {% else %}
-                                <img src="{{ SITEURL }}/{{ ABOUT_IMAGE }}" class="image image-full" alt="" />
-                            {% endif %}
-                            <p>
-                            {{ ABOUT_TEXT }}
-                            </p>
+                            <p>{{ ABOUT_TEXT }}</p>
                             <footer>
-                                {% if ABOUT_LINK %}
-                                    <a href="{{ ABOUT_LINK }}" class="button">{% trans %}Find out more{% endtrans %}</a>
-                                {% endif %}
+                            {% if ABOUT_LINK %}
+                                <a href="{{ ABOUT_LINK }}" class="button">{% trans %}Find out more{% endtrans %}</a>
+                            {% endif %}
                             </footer>
                         </section>
                     </div>
                     {% endif %}
-                </div>
-                <div class="row">
-                    {% set display_categories = categories and CATEGORY_SAVE_AS %}
-                    {% set display_contact_section = FACEBOOK_USER or TWITTER_USER or LINKEDIN_USER or GOOGLEPLUS_USER or ADDRESS or MAIL or PHONE %}
-                    <div class="{{ 4 * (1 + (0 if display_categories else 1) + (0 if display_contact_section else 1)) }}u">
+                    {% if ABOUT_IMAGE %}
+                    <div class="4u">
+                        <section>
+                        {% set about_img_url = ABOUT_IMAGE if ABOUT_IMAGE.startswith('http') else (SITEURL + '/' + ABOUT_IMAGE) %}
+                        {% if ABOUT_LINK %}
+                            <a href="{{ ABOUT_LINK }}" class="image image-full"><img src="{{ about_img_url }}" alt="" /></a>
+                        {% else %}
+                            <img src="{{ about_img_url }}" class="image image-full" alt="" />
+                        {% endif %}
+                        </section>
+                    </div>
+                    {% endif %}
+                    <div class="4u">
                         <section>
                             <header>
                                 <h2>{% trans %}Blogroll{% endtrans %}</h2>
@@ -199,7 +195,7 @@
                             </ul>
                         </section>
                     </div>
-                    {% if display_categories %}
+                    {% if categories and CATEGORY_SAVE_AS %}
                     <div class="4u">
                         <section>
                             <header>
@@ -213,7 +209,7 @@
                         </section>
                     </div>
                     {% endif %}
-                    {% if display_contact_section %}
+                    {% if FACEBOOK_USER or TWITTER_USER or LINKEDIN_USER or GOOGLEPLUS_USER or ADDRESS or MAIL or PHONE %}
                     <div class="4u">
                         <section>
                             <header>
@@ -259,26 +255,26 @@
                     </div>
                     {% endif %}
                 </div>
-                {% if COPYRIGHT and SHOW_COPYRIGHT != False %}
                 <div class="row">
                     <div class="12u">
                         <div id="copyright">
                             <ul class="links">
+                                {% if COPYRIGHT %}
                                 <li>&copy; {{ COPYRIGHT }}	</li>
-                                <li>Images: <a href="http://facebook.com/DreametryDoodle">Dreametry Doodle</a> + <a href="http://iconify.it">Iconify.it</a></li>
+                                {% endif %}
                                 <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+                                <li>Pelican theme by Pierre-Paul Lefebvre &amp; Lucas Cimon: <a href="https://github.com/Lucas-C/html5-dopetrope">html5-dopetrope@GitHub</a> - <a href="https://creativecommons.org/licenses/by/3.0/en/"></a>CC BY 3.0</li>
                             </ul>
                         </div>
                     </div>
                 </div>
-                {% endif %}
             </section>
         </div>
 		<script src="theme/js/jquery.min.js"></script>
 		<script src="theme/js/jquery.dropotron.js"></script>
 		<script src="theme/js/config.js"></script>
 		<script src="theme/js/skel.min.js"></script>
-		<script src="theme/js/skel-panels.min.js"></script>
+		<!--script src="theme/js/skel-panels.min.js"></script-->
 		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><link rel="stylesheet" href="/theme/css/ie8.css" /><![endif]-->
 		{% include 'analytics.html' %}
 	</body>

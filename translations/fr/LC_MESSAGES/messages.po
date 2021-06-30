@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-06-29 21:36+0200\n"
+"POT-Creation-Date: 2021-06-30 09:46+0200\n"
 "PO-Revision-Date: 2021-06-29 18:41+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: fr\n"
@@ -18,43 +18,47 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.9.1\n"
 
-#: templates/base.html:109
+#: templates/base.html:153
 msgid "Latest articles"
 msgstr "Derniers articles"
 
-#: templates/base.html:127
+#: templates/base.html:171
 msgid "What's this all about?"
-msgstr "De quoi ça parle ?"
+msgstr "De quoi il s'agit ?"
 
-#: templates/base.html:139
+#: templates/base.html:184
 msgid "Find out more"
 msgstr "En savoir plus"
 
-#: templates/base.html:150
+#: templates/base.html:198
 msgid "Blogroll"
 msgstr "Liens"
 
-#: templates/base.html:163
+#: templates/base.html:211
 msgid "Categories"
 msgstr "Catégories"
 
-#: templates/base.html:177
+#: templates/base.html:225
 msgid "Contact"
 msgstr "Contact"
 
-#: templates/base.html:197
+#: templates/base.html:245
 msgid "Address"
 msgstr "Adresse"
 
-#: templates/base.html:205
+#: templates/base.html:251
 msgid "Mail"
 msgstr "E-mail"
 
-#: templates/base.html:211
+#: templates/base.html:257
 msgid "Phone"
 msgstr "Téléphone"
 
-#: templates/index.html:23
+#: templates/index.html:22
+msgid "Source"
+msgstr ""
+
+#: templates/index.html:25
 msgid "Continue Reading"
 msgstr "Lire plus"
 
