@@ -275,7 +275,7 @@
         <script src="theme/js/jquery.min.js"></script>
         <script src="theme/js/config.js"></script>
         <script src="theme/js/skel.min.js"></script>
-        {% if DISPLAY_PAGES_ON_MENU or DISPLAY_CATEGORIES_ON_MENU or MENUITEMS %}
+        {% if (DISPLAY_PAGES_ON_MENU and pages) or (DISPLAY_CATEGORIES_ON_MENU and categories) or MENUITEMS %}
         <script src="theme/js/skel-panels.min.js"></script>
         {% endif %}
         <!--[if lte IE 8]>
