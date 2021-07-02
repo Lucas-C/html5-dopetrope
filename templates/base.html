@@ -1,15 +1,16 @@
 <!DOCTYPE HTML>
 <!--
-	Dopetrope 2.0 by HTML5 UP
-	html5up.net | @n33co
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+    Dopetrope 2.0 by HTML5 UP
+    html5up.net | @n33co
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html lang="{{ DEFAULT_LANG }}" itemscope itemtype="http://schema.org/WebPage">
-	<head>
-		{% block head %}
+    <head>
+        {% block head %}
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <base href="{{ SITEURL }}/"><!-- So that static/ a images/ prefixed URLs are resolved in the same way in pages/ -->
 
         <title>{% block title %}{{ SITENAME }}{% endblock title %}</title>
         <meta name="description" content="{% block meta_desc %}{{ SITESUBTITLE|striptags|escape }}{% endblock %}">
@@ -43,7 +44,6 @@
         {% endif %}
 
         <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,900,300italic" rel="stylesheet" />
-        <link rel="stylesheet" href="theme/css/pygment.css" />
         <noscript>
             <link rel="stylesheet" href="theme/css/skel-noscript.css" />
             <link rel="stylesheet" href="theme/css/style.css" />
@@ -86,56 +86,58 @@
         <meta name="robots" content="noindex">
         {% endif %}
     {% endblock head %}
-	</head>
-	<body class="no-sidebar">
+    </head>
+    <body class="no-sidebar">
         <div id="header-wrapper">
             <div class="container">
                 <div class="row">
                     <div class="12u">
                         <section id="header">
                             <h1><a href="{{ SITEURL }}/">{{ SITENAME }}</a></h1>
+                            {% if SITESUBTITLE %}
+                            <div id="header-subtitle">
+                            {{ SITESUBTITLE }}
+                            </div>
+                            {% endif %}
                             <nav id="nav">
                                 <ul>
-                                    {% for title, link in MENUITEMS %}
-                                    <li><a href="{{ link }}">{{ title }}</a></li>
-                                    {% endfor %}
-
                                     {% if DISPLAY_PAGES_ON_MENU %}
 
                                     {% for p in pages %}
-                                    <li{% if p == page %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
+                                    <li{% if p == page %} class="active"{% endif %}>
+                                        <a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a>
+                                    </li>
                                     {% endfor %}
 
-                                    {% else %}
+                                    {% elif DISPLAY_CATEGORIES_ON_MENU %}
 
-                                    {% if DISPLAY_CATEGORIES_ON_MENU %}
                                     {% for cat, null in categories %}
-                                    <li{% if cat == category %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
+                                    <li{% if cat == category %} class="active"{% endif %}>
+                                        <a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a>
+                                    </li>
                                     {% endfor %}
-                                    {% endif %}
 
                                     {% endif %}
+
+                                    {% for title, link in MENUITEMS %}
+                                    <li><a href="{{ link }}">{{ title }}</a></li>
+                                    {% endfor %}
                                 </ul>
                             </nav>
                         </section>
                     </div>
                 </div>
             </div>
-            {% if SITESUBTITLE %}
-            <div id="header-subtitle">
-            {{ SITESUBTITLE }}
-            </div>
-            {% endif %}
         </div>
 
-		<div id="main-wrapper">
+        <div id="main-wrapper">
             <div class="container">
                 {% block content %}
                 {% endblock %}
             </div>
         </div>
 
-		<div id="footer-wrapper">
+        <div id="footer-wrapper">
             <section id="footer" class="container">
                 <div class="row">
                     {% if articles and not DISABLE_LATEST_ARTICLES %}
@@ -260,7 +262,7 @@
                         <div id="copyright">
                             <ul class="links">
                                 {% if COPYRIGHT %}
-                                <li>&copy; {{ COPYRIGHT }}	</li>
+                                <li>&copy; {{ COPYRIGHT }}    </li>
                                 {% endif %}
                                 <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
                                 <li>Pelican theme by Pierre-Paul Lefebvre &amp; Lucas Cimon: <a href="https://github.com/Lucas-C/html5-dopetrope">html5-dopetrope@GitHub</a> - <a href="https://creativecommons.org/licenses/by/3.0/en/"></a>CC BY 3.0</li>
@@ -270,12 +272,15 @@
                 </div>
             </section>
         </div>
-		<script src="theme/js/jquery.min.js"></script>
-		<script src="theme/js/jquery.dropotron.js"></script>
-		<script src="theme/js/config.js"></script>
-		<script src="theme/js/skel.min.js"></script>
-		<!--script src="theme/js/skel-panels.min.js"></script-->
-		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><link rel="stylesheet" href="/theme/css/ie8.css" /><![endif]-->
-		{% include 'analytics.html' %}
-	</body>
+        <script src="theme/js/jquery.min.js"></script>
+        <script src="theme/js/config.js"></script>
+        <script src="theme/js/skel.min.js"></script>
+        {% if DISPLAY_PAGES_ON_MENU or DISPLAY_CATEGORIES_ON_MENU or MENUITEMS %}
+        <script src="theme/js/skel-panels.min.js"></script>
+        {% endif %}
+        <!--[if lte IE 8]>
+        <script src="js/html5shiv.js"></script><link rel="stylesheet" href="/theme/css/ie8.css" />
+        <![endif]-->
+        {% include 'analytics.html' %}
+    </body>
 </html>

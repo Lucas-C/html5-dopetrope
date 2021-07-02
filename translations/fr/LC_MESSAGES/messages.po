@@ -24,7 +24,7 @@ msgstr "Derniers articles"
 
 #: templates/base.html:171
 msgid "What's this all about?"
-msgstr "De quoi il s'agit ?"
+msgstr "De quoi s'agit-il ?"
 
 #: templates/base.html:184
 msgid "Find out more"
@@ -60,5 +60,5 @@ msgstr ""
 
 #: templates/index.html:25
 msgid "Continue Reading"
-msgstr "Lire plus"
+msgstr "Lire"
 

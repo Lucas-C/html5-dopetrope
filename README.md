@@ -1,6 +1,6 @@
 ### html5up-dopetrope
 
-[Pelican](https://github.com/getpelican/pelican/) theme based on html5up-dopetrope design.
+[Pelican](https://github.com/getpelican/pelican/) theme based on [html5up dopetrope](https://html5up.net/dopetrope) design.
 
 ## Preview
 ![](https://raw.github.com/PierrePaul/html5-dopetrope/master/screenshot.png)
@@ -38,11 +38,10 @@ not to the internal article page.
 ## Developping the theme
 
 It currently uses [SkelJS v0.3.3](https://github.com/ajlkn/skel),
-a lightweight framework for building responsive sites,
-and [jquery.dropotron: ](https://github.com/ajlkn/jquery.dropotron),
-providing multilevel dropdown menus for jQuery.
+a lightweight framework for building responsive sites.
 
 ### Updating translations
+
 Summarizing [i18n_subsites plugin documentation](https://github.com/getpelican/pelican-plugins/blob/master/i18n_subsites/localizing_using_jinja2.rst#3-extract-translatable-strings-and-translate-them):
 
 1. **Install Babel**:
@@ -66,7 +65,3 @@ Translation strings can now be manually edited in the `.po` files.
 ## License
 
 [Creative Commons Attribution 3.0 Unported](https://raw.github.com/PierrePaul/html5-dopetrope/master/LICENSE.txt)
-
-  [1]: https://github.com/getpelican/pelican/ "Pelican"
-  [2]: https://raw.github.com/PierrePaul/html5-dopetrope/master/screenshot.png
-  [3]: https://raw.github.com/PierrePaul/html5-dopetrope/master/LICENSE.txt
