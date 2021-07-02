@@ -7,7 +7,24 @@
 
 Demo: <http://hopitaux-a-defendre.github.io/ghm-grenoble/>
 
-## Variables
+## Features
+
+* Responsive design
+* Pins on the homepage board can be either internal articles or just external links
+* Metadata to display "social share vignettes" of the website: support for [Open Graph](http://ogp.me) & [Twitter Summary Card](https://dev.twitter.com/cards/types/summary)
+* i18n, with embeded localization in French
+* Optional Google Analytics
+* W3C-Validated HTML
+* Small:
+```
+$ du -ch static/{css,js}/ templates/
+32K     templates/
+153K    static/css/
+196K    static/js/
+381K    total
+```
+
+## Custom configuration variables
 
 Optional variables are available for this theme :
 
@@ -22,6 +39,7 @@ Optional variables are available for this theme :
 *  `ABOUT_IMAGE` : Image to show at the bottom right of the page.
 *  `ABOUT_LINK` : Will add a link under the `ABOUT_TEXT` page 
 *  `COPYRIGHT` : optional copyright notice that will appear in the footer
+*  `DISPLAY_HOMEPAGE_ON_MENU` : you can set it to `True` to include a "HomePage" link in the navigation menu
 *  `DISABLE_LATEST_ARTICLES` : you can set it to `True` to hide the "latest articles" section.
 *  `FAVICON` : optional relative path to an image
 * `META_IMAGE`: optional absolute URL of a custom image for the `og:image` meta property,

@@ -25,6 +25,7 @@ window._skel_panels_config = {
             style: "push",
             size: "40%",
             html: '<h2 id="sideMenu">Menu</h2>'
+                // This "navList" action will copiy the content of #nav into the lateral navPanel:
                 + '<div data-action="navList" data-args="nav"></div>'
         }
     },

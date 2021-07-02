@@ -103,6 +103,12 @@
                                 <ul>
                                     {% if DISPLAY_PAGES_ON_MENU %}
 
+                                    {% if DISPLAY_HOMEPAGE_ON_MENU %}
+                                    <li{% if not page %} class="active"{% endif %}>
+                                        <a href="{{ SITEURL }}">{% trans %}Articles{% endtrans %}</a>
+                                    </li>
+                                    {% endif %}
+
                                     {% for p in pages %}
                                     <li{% if p == page %} class="active"{% endif %}>
                                         <a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a>
