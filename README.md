@@ -9,12 +9,13 @@ Demo: <http://hopitaux-a-defendre.github.io/ghm-grenoble/>
 
 ## Features
 
-* Responsive design
-* Pins on the homepage board can be either internal articles or just external links
+* Responsive design, with a collapsible lateral navigation menu on mobile
+* Pins on the homepage board can be either internal articles or simple external links
 * Metadata to display "social share vignettes" of the website: support for [Open Graph](http://ogp.me) & [Twitter Summary Card](https://dev.twitter.com/cards/types/summary)
 * i18n, with embeded localization in French
 * Optional Google Analytics
 * W3C-Validated HTML
+* Optional "robots-noindex"
 * Small:
 ```
 $ du -ch static/{css,js}/ templates/
