@@ -12,7 +12,7 @@
                         {% set url = article.link if article.link else (SITEURL + '/' + article.url) %}
                         {% set image_url = article.featured_image or article.image or article.picture %}
                         {% if image_url %}
-                        <a href="{{ url }}" class="image image-full"><img src="{{ image_url }}" alt=""/></a>
+                        <a href="{{ url }}" class="image image-full"><img loading="lazy" src="{{ image_url }}" alt=""/></a>
                         {% endif %}
                         <header>
                             <h3>{{ article.title }}</h3>

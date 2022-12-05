@@ -52,6 +52,11 @@
         <script>
             window.SITEURL = "{{SITEURL}}"
         </script>
+        {% if CUSTOM_CSS %}
+        <style>
+        {{ CUSTOM_CSS }}
+        </style>
+        {% endif %}
 
         <meta name="author" content="{{ AUTHOR }}">
         <meta name="copyright" content="{{ AUTHOR }}">
